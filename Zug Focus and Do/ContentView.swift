@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    let tasks = Task.sampleTasks
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List(tasks) { task in
+                VStack(alignment: .leading) {
+                    Text(task.name)
+                        .font(.headline)
+                    HStack {
+                        Text(task.priority.rawValue.capitalized)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        if let dueDate = task.dueDate {
+                            Text(dueDate, style: .date)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Tasks")
         }
-        .padding()
     }
 }
 
