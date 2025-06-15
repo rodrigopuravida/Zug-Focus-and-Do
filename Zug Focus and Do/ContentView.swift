@@ -8,83 +8,86 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tasks = Task.sampleTasks
-    @State private var showingAddTask = false
+    @State private var habits = Habit.sampleHabits
+    @State private var showingAddHabit = false
     
     var body: some View {
         NavigationView {
-            List(tasks) { task in
+            List(habits) { habit in
                 VStack(alignment: .leading) {
-                    Text(task.name)
-                        .font(.headline)
                     HStack {
-                        Text(task.priority.rawValue.capitalized)
+                        Text(habit.name)
+                            .font(.headline)
+                        Spacer()
+                        Text("🔥 \(habit.streak)")
+                            .font(.subheadline)
+                            .foregroundColor(.orange)
+                    }
+                    HStack {
+                        Text(habit.priority.rawValue.capitalized)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        if let dueDate = task.dueDate {
-                            Text(dueDate, style: .date)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                        if habit.isRecurring {
+                            Image(systemName: "repeat")
+                                .foregroundColor(.blue)
                         }
                     }
                 }
             }
-            .navigationTitle("Tasks")
+            .navigationTitle("Habits")
             .toolbar {
                 Button(action: {
-                    showingAddTask = true
+                    showingAddHabit = true
                 }) {
                     Image(systemName: "plus")
                 }
             }
-            .sheet(isPresented: $showingAddTask) {
-                AddTaskView(tasks: $tasks)
+            .sheet(isPresented: $showingAddHabit) {
+                AddHabitView(habits: $habits)
             }
         }
     }
 }
 
-struct AddTaskView: View {
+struct AddHabitView: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var tasks: [Task]
+    @Binding var habits: [Habit]
     
-    @State private var taskName = ""
-    @State private var priority = Task.Priority.medium
-    @State private var dueDate = Date()
-    @State private var isRecurring = false
+    @State private var habitName = ""
+    @State private var priority = Habit.Priority.medium
+    @State private var isRecurring = true
     
     var body: some View {
         NavigationView {
             Form {
-                TextField("Task Name", text: $taskName)
+                TextField("Habit Name", text: $habitName)
                 
                 Picker("Priority", selection: $priority) {
-                    ForEach(Task.Priority.allCases, id: \.self) { priority in
+                    ForEach(Habit.Priority.allCases, id: \.self) { priority in
                         Text(priority.rawValue.capitalized)
                     }
                 }
                 
-                Toggle("Recurring Task", isOn: $isRecurring)
-                
-                DatePicker("Due Date", selection: $dueDate, displayedComponents: .date)
+                Toggle("Daily Habit", isOn: $isRecurring)
             }
-            .navigationTitle("New Task")
+            .navigationTitle("New Habit")
             .navigationBarItems(
                 leading: Button("Cancel") {
                     dismiss()
                 },
                 trailing: Button("Add") {
-                    let newTask = Task(
-                        name: taskName,
+                    let newHabit = Habit(
+                        name: habitName,
                         priority: priority,
-                        dueDate: dueDate,
+                        dueDate: nil,
                         isCompleted: false,
-                        isRecurring: isRecurring
+                        isRecurring: isRecurring,
+                        streak: 0
                     )
-                    tasks.append(newTask)
+                    habits.append(newHabit)
                     dismiss()
                 }
-                .disabled(taskName.isEmpty)
+                .disabled(habitName.isEmpty)
             )
         }
     }

@@ -1,12 +1,13 @@
 import Foundation
 
-struct Task: Identifiable {
+struct Habit: Identifiable {
     let id = UUID()
     var name: String
     var priority: Priority
     var dueDate: Date?
     var isCompleted: Bool
     var isRecurring: Bool
+    var streak: Int = 0
     
     enum Priority: String, CaseIterable {
         case low
@@ -14,11 +15,11 @@ struct Task: Identifiable {
         case high
     }
     
-    static let sampleTasks = [
-        Task(name: "Buy groceries", priority: .high, dueDate: Date().addingTimeInterval(86400), isCompleted: false, isRecurring: false),
-        Task(name: "Morning workout", priority: .medium, dueDate: nil, isCompleted: true, isRecurring: true),
-        Task(name: "Read a book", priority: .low, dueDate: Date().addingTimeInterval(172800), isCompleted: false, isRecurring: false),
-        Task(name: "Call mom", priority: .high, dueDate: Date().addingTimeInterval(43200), isCompleted: false, isRecurring: false),
-        Task(name: "Meditate", priority: .medium, dueDate: nil, isCompleted: false, isRecurring: true)
+    static let sampleHabits = [
+        Habit(name: "Morning Meditation", priority: .high, dueDate: nil, isCompleted: true, isRecurring: true, streak: 5),
+        Habit(name: "Read 30 minutes", priority: .medium, dueDate: nil, isCompleted: false, isRecurring: true, streak: 3),
+        Habit(name: "Drink Water", priority: .high, dueDate: nil, isCompleted: false, isRecurring: true, streak: 7),
+        Habit(name: "Evening Walk", priority: .medium, dueDate: nil, isCompleted: false, isRecurring: true, streak: 2),
+        Habit(name: "Journal", priority: .low, dueDate: nil, isCompleted: false, isRecurring: true, streak: 1)
     ]
-} 
+}
