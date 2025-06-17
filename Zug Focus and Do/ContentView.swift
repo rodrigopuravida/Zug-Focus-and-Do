@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var habits = Habit.sampleHabits
+    @State private var habits: [Habit] = []
     @State private var showingAddHabit = false
     
     var body: some View {
