@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Zug Focus and Do
-//
-//  Created by Rodrigo Carballo on 6/12/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
