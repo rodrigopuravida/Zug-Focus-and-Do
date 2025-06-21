@@ -38,6 +38,12 @@ struct ContentView: View {
             .sheet(isPresented: $showingAddHabit) {
                 AddHabitView(habits: $habits)
             }
+            .onAppear {
+                habits = Habit.loadHabits()
+            }
+            .onChange(of: habits) { oldValue, newValue in
+                Habit.saveHabits(newValue)
+            }
         }
     }
 }
@@ -89,3 +95,4 @@ struct AddHabitView: View {
 #Preview {
     ContentView()
 }
+

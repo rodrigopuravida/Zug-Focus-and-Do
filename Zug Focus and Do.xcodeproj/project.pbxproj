@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		48043A782E06FDCD0083916D /* Zug_Focus_and_DoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48043A752E06FDCD0083916D /* Zug_Focus_and_DoApp.swift */; };
+		48043A792E06FDCD0083916D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48043A742E06FDCD0083916D /* Task.swift */; };
+		48043A7A2E06FDCD0083916D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48043A732E06FDCD0083916D /* ContentView.swift */; };
+		48043A7B2E06FDCD0083916D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48043A722E06FDCD0083916D /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		48043A722E06FDCD0083916D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		48043A732E06FDCD0083916D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		48043A742E06FDCD0083916D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		48043A752E06FDCD0083916D /* Zug_Focus_and_DoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zug_Focus_and_DoApp.swift; sourceTree = "<group>"; };
 		484E570E2DFBC81000C17932 /* Zug Focus and Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zug Focus and Do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		484E57102DFBC81000C17932 /* Zug Focus and Do */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Zug Focus and Do";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		484E570B2DFBC81000C17932 /* Frameworks */ = {
@@ -29,10 +32,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48043A762E06FDCD0083916D /* Zug Focus and Do */ = {
+			isa = PBXGroup;
+			children = (
+				48043A722E06FDCD0083916D /* Assets.xcassets */,
+				48043A732E06FDCD0083916D /* ContentView.swift */,
+				48043A742E06FDCD0083916D /* Task.swift */,
+				48043A752E06FDCD0083916D /* Zug_Focus_and_DoApp.swift */,
+			);
+			path = "Zug Focus and Do";
+			sourceTree = "<group>";
+		};
+		48043A772E06FDCD0083916D /* Zug-Focus-and-Do */ = {
+			isa = PBXGroup;
+			children = (
+				48043A762E06FDCD0083916D /* Zug Focus and Do */,
+			);
+			path = "Zug-Focus-and-Do";
+			sourceTree = "<group>";
+		};
 		484E57052DFBC81000C17932 = {
 			isa = PBXGroup;
 			children = (
-				484E57102DFBC81000C17932 /* Zug Focus and Do */,
+				48043A772E06FDCD0083916D /* Zug-Focus-and-Do */,
 				484E570F2DFBC81000C17932 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,9 +81,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				484E57102DFBC81000C17932 /* Zug Focus and Do */,
 			);
 			name = "Zug Focus and Do";
 			packageProductDependencies = (
@@ -109,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48043A7B2E06FDCD0083916D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +139,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48043A782E06FDCD0083916D /* Zug_Focus_and_DoApp.swift in Sources */,
+				48043A792E06FDCD0083916D /* Task.swift in Sources */,
+				48043A7A2E06FDCD0083916D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
